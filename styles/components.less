@@ -66,21 +66,21 @@
 
   // Inputs + controls ---------------
 
-  .input-search,
-  .input-textarea {
-    margin-top: @component-padding;
-  }
-
-  .input-label {
+  .SearchInput,
+  .TextArea {
     display: block;
-    width: -webkit-max-content;
-    margin: 0 1em 1em 0;
+    margin-top: var(--spacer);
   }
 
-  .input-color,
-  .input-number,
-  .input-select {
-    margin: 0 @component-padding 0 0 !important;
+  .ColorPicker,
+  .NumberInput,
+  .Select {
+    margin: 0 var(--spacer) 0 0;
+  }
+
+  .Label {
+    display: block;
+    margin: var(--spacer) 0;
   }
 
 
