@@ -23,17 +23,15 @@
       position: relative;
       flex: 1 0 200px;
       padding: 10px 0 10px 40px;
-      color: @text-color-subtle;
       &:before {
         position: absolute;
         margin-left: -32px;
-        color: @text-color-highlight;
         text-align: center;
       }
       &:hover {
-        color: @text-color-highlight;
+        color: var(--fg-strong);
         &:before {
-          color: @text-color-selected;
+          color: inherit;
           font-size: 32px;
           width: 32px;
           height: 32px;
@@ -106,6 +104,15 @@
     max-width: 100%;
     left: 0;
     margin: 0;
+
+    // prevent overlay backdrop from leaking outside
+    &:after {
+      position: absolute;
+      top: calc( var(--spacer) ~'*' -1 );
+      left: calc( var(--spacer) ~'*' -1 );
+      right: calc( var(--spacer) ~'*' -1 );
+      bottom: calc( var(--spacer) ~'*' -1 );
+    } 
   }
 
 
