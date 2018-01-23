@@ -6,50 +6,66 @@
   display: flex;
   flex-direction: column;
 
-  a {
-    text-decoration: underline;
+  &-Header {
+    padding: var(--spacer);
+    border-bottom: 1px solid var(--border);
   }
-}
 
-.styleguide-controls {
-  position: absolute;
-  right: var(--spacer);
-  top: var(--spacer);
-  z-index: 100;
-}
-
-.styleguide-header {
-  padding: var(--spacer);
-  border-bottom: 1px solid var(--border);
-  h1 {
+  &-Title {
     font-size: 1.5em;
     margin: .5em 0;
     color: var(--fg-strong);
   }
-  p {
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+
+  &-Description {
+    margin-bottom: 0;
   }
-}
 
-.styleguide-sections {
-  flex: 1;
-  overflow: auto;
+  &-Controls {
+    position: absolute;
+    right: var(--spacer);
+    top: var(--spacer);
+    z-index: 100;
+  }
 
-  & > section {
+  &-Sections {
+    flex: 1;
+    overflow: auto;
+  }
+
+  &-Section {
     padding: 0;
     border-bottom: 1px solid var(--border);
     border-top: none;
 
-    &:last-child {
-      margin-bottom: 0;
+    & > h2 {
+      font-size: 1.1em;
+      line-height: 1.2;
+      color: var(--fg-strong);
+      margin: 1em var(--spacer) 0 var(--spacer);
+    }
+  
+    & > p {
+      margin: .5em var(--spacer) 1em var(--spacer);
     }
 
-    &.collapsed {
+    &-title {
+      padding: var(--spacer) var(--spacer) 0 var(--spacer);
+      margin: 0;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 1.5em;
+      color: var(--fg-strong);
+    }
+
+    &.is-collapsed {
       background-color: var(--bg-input);
+
+      & > * {
+        display: none
+      }
       
-      & > .section-heading {
+      & > .styleguide-Section-title {
         display: block;
         margin: 0;
         padding-bottom: var(--spacer);
@@ -61,66 +77,44 @@
           background-color: var(--bg-input);
         }
       }
-  
-      & > * {
-        display: none
-      }
+
     }
   }
 
-  .section-heading.section-heading {
-    padding: var(--spacer) var(--spacer) 0 var(--spacer);
-    margin: 0;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 1.5em;
-    color: var(--fg-strong);
-  }
+  // Example -------------------------------
 
-  section > h2 {
-    font-size: 1.1em;
-    line-height: 1.2;
-    color: var(--fg-strong);
-    margin: 1em var(--spacer) 0 var(--spacer);
-  }
-
-  section > p {
-    margin: .5em var(--spacer) 1em var(--spacer);
-  }
-}
-
-// Example -------------------------------
-
-.styleguide .example {
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: var(--border-radius);
-  padding: var(--spacer-1);
-
-  .example-rendered,
-  .example-code {
-    position: relative;
-    flex: 1 1 300px;
-    min-width: 0;
-    margin: var(--spacer-1);
+  &-Example {
+    display: flex;
+    flex-wrap: wrap;
     border-radius: var(--border-radius);
-    border: 1px solid var(--border);
-  }
+    padding: var(--spacer-1);
 
-  .example-rendered {
-    padding: var(--spacer);
-    overflow: hidden;
-  }
-
-  .example-code {
-    display: none; // TEMP
-    background-color: var(--bg-input);
-    pre {
-      border: none;
-      background-color: inherit;
+    &-rendered,
+    &-code {
+      position: relative;
+      flex: 1 1 300px;
+      min-width: 0;
+      margin: var(--spacer-1);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border);
     }
+
+    &-rendered {
+      padding: var(--spacer);
+      overflow: hidden;
+    }
+
+    &-code {
+      font-size: .9em;
+      overflow: auto;
+      padding: var(--spacer);
+      background-color: var(--bg-input);;
+    }
+    &-html {
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
   }
 }
-
-
-
